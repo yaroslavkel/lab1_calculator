@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -std=c99 -g
+CFLAGS=-Wall -Wextra
 TARGET=cmdcalc
 SOURCES=main.c calc.c decrypt.c
 
