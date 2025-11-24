@@ -1,0 +1,5 @@
+*.out
+*sd
+*.sh
+cmdcalc
+*.o
