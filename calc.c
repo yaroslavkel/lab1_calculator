@@ -1,6 +1,6 @@
 #include "calc.h"
 int is_valid_operator(char op){
-	return op == '+' || op == '-' || op == '*' || op == '%'
+	return op == '+' || op == '-' || op == '*' || op == '%';
 }
 int calculate(int a, char op, int b){
 	switch(op){

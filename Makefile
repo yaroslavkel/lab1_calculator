@@ -1,7 +1,7 @@
 CC=gcc
-CFLAGS=-Wall -Wextra
+CFLAGS=-Wall -Wextra -std=c99 -g
 TARGET=cmdcalc
-SOURCES=main.c calculator.c decrypt.c
+SOURCES=main.c calc.c decrypt.c
 
 $(TARGET): $(SOURCES)
 	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCES)

@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <decrypt.h>
-#include <calc.h>
+#include "decrypt.h"
+#include "calc.h"
 int is_valid_number(const char* str){
 	if (str == NULL || *str == '\0'){
 		return 0;
@@ -14,8 +14,8 @@ int is_valid_number(const char* str){
 	while (*str){
 		if (!isdigit(*str)){
 			return 0;
-			str++;
 		}
+		str++;
 	}
 	return 1;
 }
@@ -54,14 +54,14 @@ int validate_arguments(int argc, char** argv, int key_index){
 		fprintf(stderr, "Каждое выражение требует 3 аргумента: число оператор число\n");
 		return 0;
 	}
-	for (int i = 1; i < key_index, i+=3){
+	for (int i = 1; i < key_index; i+=3){
 		if (!is_valid_number(argv[i])){
 			fprintf(stderr, "Ошибка: неверный формат числа, число должно быть целым '%s'\n", argv[i]);
 			return 0;
 		}
-		if (strlen(argv[i + 1]) != 1 || is_valid_operator(argv[i + 1][0])){
+		if (strlen(argv[i + 1]) != 1 || !is_valid_operator(argv[i + 1][0])){
 			fprintf(stderr, "Ошибка: неверный оператор '%s'\n", argv[i + 1]);
-			frpintf(stderr, "Допустимые операторы: + - * %%\n ");
+			fprintf(stderr, "Допустимые операторы: + - * %%\n ");
 			return 0;
 		}
 		if (!is_valid_number(argv[i + 2])){
