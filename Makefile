@@ -3,8 +3,8 @@ CFLAGS=-Wall -Wextra
 TARGET=cmdcalc
 OBJ = main.o calc.o decrypt.o
 
-$(TARGET): $(SOURCES)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCES)
+$(TARGET): $(OBJ)
+	$(CC) -o $(TARGET) $(OBJ)
 main.o: main.c decrypt.h calc.h
 	$(CC) $(CFLAGS) -c main.c
 calc.o: calc.c calc.h
