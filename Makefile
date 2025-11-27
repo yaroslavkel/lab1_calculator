@@ -1,10 +1,16 @@
 CC=gcc
 CFLAGS=-Wall -Wextra
 TARGET=cmdcalc
-SOURCES=main.c calc.c decrypt.c
+OBJ = main.o calc.o decrypt.o
 
 $(TARGET): $(SOURCES)
 	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCES)
+main.o: main.c decrypt.h calc.h
+	$(CC) $(CFLAGS) -c main.c
+calc.o: calc.c calc.h
+	$(CC) $(CFLAGs) -c calc.c
+decrypt.o: decrypt.c decrypt.h
+	$(CC) $(CFLAGS) -c decrypt.c
 
 clean:
 	rm -f $(TARGET)
